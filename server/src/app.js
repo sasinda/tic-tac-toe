@@ -25,9 +25,11 @@ app.set('secret', process.env.SECRET ? process.env.SECRET: "Sh0PK33PS3CR3T");
 // app.use(morgan('dev'));
 //to allow cross origin client server to connect to express js on 4000. cross origin
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', req.headers.origin );
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Credentials", "true");
+    if(req.headers.origin){
+        res.setHeader('Access-Control-Allow-Origin', req.headers.origin );
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        res.header("Access-Control-Allow-Credentials", "true");
+    }
     next();
 });
 

@@ -1,5 +1,5 @@
 import GameController from './controllers/game.ctrl'
-import AuthController from './controllers/authenticate.ctrl'
+import AuthController from './controllers/auth.ctrl'
 import SocketIO from 'socket.io'
 
 let gc = new GameController();

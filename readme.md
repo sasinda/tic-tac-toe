@@ -7,6 +7,16 @@
 - pm2 ^2.x
 
 ### Usage
+
+$ cd server
+$ npm install
+$ npm run
+
+Go to localhost:4000 in browser.
+The server has a client build in the public folder.
+Open up multiple tabs enter player names and start playing tictactoe!
+
+#############################
 1. Install  pm2
     ```
     $ npm install -g pm2
@@ -36,10 +46,10 @@
     
     run:
     for development (using HMR)
-      $ npm run start
+      $ npm start
     for production (using pm2)
-      $ yarn start:prod
-      $ yarn stop
+      $ npm run start:prod
+      //TODO:Sorry This want run. Didn't configure webpack build yet.
     ```
 
 ## License
@@ -50,6 +60,11 @@ MIT License
 
 server: src files for the server
 client: src files for the client
-dist: build output of the client, which will be served by the backend express server itself.
+server/public: build out put from the clint. NOTE: client was preconfigured to use localhost:4000, so for production builds rebuild the client with new config and copy paste here. TODO: auto reconfigure server url, by serverside rendering of the index.html or some other appropriate mechanism. 
 
+Server Uses Json Web Tokens for security.
+JWT middleware is set for both rest endpoints and socket.io  endpoints.
 
+## TODOs
+Clean up game state after players exit.
+Validate game state to avoid malicious clients from cheating. (Currently the server does minimal work and let clients pass up state without much intervention)

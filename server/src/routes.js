@@ -1,5 +1,5 @@
 import express from 'express';
-import AuthController from './controllers/authenticate.ctrl';
+import AuthController from './controllers/auth.ctrl';
 import GameController from './controllers/game.ctrl'
 
 const router = express.Router();
